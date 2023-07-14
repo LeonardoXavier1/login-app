@@ -20,22 +20,33 @@ public class MainActivity extends AppCompatActivity {
     private EditText editPassword;
 
     private Button buttonLogin;
-
+    private Button buttonCadastro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
-
+        getSupportActionBar().hide();
         editUser = findViewById(R.id.editUser);
         editPassword = findViewById(R.id.editPassword);
 
         iniciarComponentes();
+        iniciarComponentes2();
+        buttonCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+
+                Intent intent2 = new Intent(MainActivity.this, Cadastro.class);
+                startActivity(intent2);
+            }
+        });
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LoginRealizado.class);
                 startActivity(intent);
+
+
             }
         });
 
@@ -43,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void iniciarComponentes(){
         buttonLogin=findViewById(R.id.buttonLogin);
+    }
+    private void iniciarComponentes2(){
+        View buttonCadastro = findViewById(R.id.buttonCadastro);
     }
 
     public void loginUser(View view){
